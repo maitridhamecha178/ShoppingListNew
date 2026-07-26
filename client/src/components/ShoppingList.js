@@ -31,13 +31,14 @@ class ShoppingList extends Component {
     };
 
     render() {
-        const { items } = this.props.item;
+        const { items = [] } = this.props.item || {};
+        const safeItems = Array.isArray(items) ? items : [];
 
         return (
             <Container>
                 <ul className="list-group">
                     <TransitionGroup className="shopping-list">
-                        {items.map(({ _id, name }) => {
+                        {safeItems.map(({ _id, name }) => {
                             // Create a ref if it doesn't exist
                             if (!this.nodeRefs[_id]) {
                                 this.nodeRefs[_id] = createRef();
