@@ -4,10 +4,6 @@
   "description": "A shoppin list using the MERN stack",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm run build --prefix client",
     "vercel-build": "npm run build --prefix client",
     "test": "node --test"
@@ -17,7 +13,9 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "concurrently": "^9.2.0",
-    "cors": "^2.8.5",    "dotenv": "^16.4.5",    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
     "mongoose": "^8.17.1"
   },
   "devDependencies": {
