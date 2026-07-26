@@ -15,13 +15,15 @@ const db = require('./config/keys').mongoURI;
 
 //Connect to MongoDB
 mongoose
-    .connect(db,{ 
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-      }
-    )
-    .then(() => console.log('MongoDB Conneced'))
-    .catch(err => console.log(err));
+    .connect(db, {
+        serverSelectionTimeoutMS: 10000,
+        autoIndex: true
+    })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => {
+        console.error('MongoDB connection error:', err.message);
+        console.error('Please verify your MONGODB_URI or MONGO_URI environment variable and the cluster URL.');
+    });
 
 //use routes
 app.use('/api/items', items); 
