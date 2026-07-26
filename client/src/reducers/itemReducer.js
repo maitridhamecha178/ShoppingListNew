@@ -17,7 +17,7 @@ const normalizeItems = (payload) => {
     return [];
 };
 
-export default function(state = initialState, action) {
+function itemReducer(state = initialState, action) {
     switch (action.type) {
         case GET_ITEMS:
             return {
@@ -44,3 +44,5 @@ export default function(state = initialState, action) {
             return state;
     }
 }
+
+export default itemReducer;
