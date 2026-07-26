@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './types';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+
 export const getItems = () => dispatch =>{
     dispatch(setItemsLoading());
-    axios.get('/api/items')
+    axios.get(`${API_BASE_URL}/api/items`)
     .then(res => 
         dispatch({
             type: GET_ITEMS,
@@ -13,7 +15,7 @@ export const getItems = () => dispatch =>{
 };
 
 export const addItem = item => dispatch => {
-    axios.post('/api/items', item)
+    axios.post(`${API_BASE_URL}/api/items`, item)
     .then(res => 
         dispatch({
             type: ADD_ITEM,
@@ -23,7 +25,7 @@ export const addItem = item => dispatch => {
 };  
 
 export const deleteItem = id => dispatch => {
-    axios.delete(`/api/items/${id}`) .then(res =>
+    axios.delete(`${API_BASE_URL}/api/items/${id}`) .then(res =>
         dispatch({
             type: DELETE_ITEM,
             payload: id

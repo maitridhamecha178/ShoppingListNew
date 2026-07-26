@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "stat": "server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "build": "npm run build --prefix client",
+    "vercel-build": "npm run build --prefix client",
     "test": "node --test"
   },
   "author": "Maitri Dhamecha",
